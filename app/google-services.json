@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "982577381168",
+    "firebase_url": "https://omegaa-79f7e.firebaseio.com",
+    "project_id": "omegaa-79f7e",
+    "storage_bucket": "omegaa-79f7e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982577381168:android:d407756f7eaec209",
+        "android_client_info": {
+          "package_name": "com.example.gil.omegaa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "982577381168-ri98u9jisfstaug3f5kkja681qjra7um.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gil.omegaa",
+            "certificate_hash": "d3286b946e2fdf7c41198b12d5331a4c842fb261"
+          }
+        },
+        {
+          "client_id": "982577381168-sh08q8rq1o5ckq0jok0ttq7013mmelf9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTXYgfhAvPgStEgC5nf16hLm5OYF-8H9s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "982577381168-sh08q8rq1o5ckq0jok0ttq7013mmelf9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
