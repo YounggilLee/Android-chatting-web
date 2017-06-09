@@ -110,7 +110,7 @@ public class ChatActivity extends AppCompatActivity {
         mChats = new ArrayList<>();
 
         // specify an adapter (see also next example)
-        mAdapter = new MyAdapter(mChats);
+        mAdapter = new MyAdapter(mChats, email, ChatActivity.this);
         mRecyclerView.setAdapter(mAdapter);
 
 
@@ -125,6 +125,7 @@ public class ChatActivity extends AppCompatActivity {
                 // Update RecyclerView
                 //mChats.add(dataSnapshot.getKey());
                 mChats.add(chat);
+                mRecyclerView.scrollToPosition(mChats.size() - 1);
                 mAdapter.notifyItemInserted(mChats.size() - 1);
                 // [END_EXCLUDE]
             }
