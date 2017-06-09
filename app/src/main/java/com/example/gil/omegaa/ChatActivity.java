@@ -85,6 +85,7 @@ public class ChatActivity extends AppCompatActivity {
                     chat.put("text", stText);
 
                     myRef.setValue(chat);
+                    etText.setText("");
                 }
             }
         });

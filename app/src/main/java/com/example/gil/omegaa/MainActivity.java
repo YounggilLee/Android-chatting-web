@@ -64,8 +64,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 stEmail = etEmail.getText().toString();
                 stPassword = etPassword.getText().toString();
-                userLogin(stEmail, stPassword);
 
+                if(stEmail.equals("")||stEmail.isEmpty()||stPassword.equals("")||stPassword.isEmpty()){
+                    Toast.makeText(MainActivity.this, "Please Input Login information!!", Toast.LENGTH_SHORT).show();
+                }else {
+                    userLogin(stEmail, stPassword);
+                }
             }
         });
 
@@ -140,8 +144,9 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }else {
-                            Intent in = new Intent(MainActivity.this, ChatActivity.class);
+                            Intent in = new Intent(MainActivity.this, TabActivity.class);
                             startActivity(in);
+                            finish();
                         }
 
                     }
