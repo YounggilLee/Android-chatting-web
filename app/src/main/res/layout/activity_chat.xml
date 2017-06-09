@@ -8,19 +8,35 @@
 
     <Button
         android:text="Finish"
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnFinish"
-        android:textAlignment="center"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentRight="true"/>
+    
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
         android:layout_below="@+id/btnFinish"
+        android:layout_above="@+id/etText"
         android:id="@+id/recycler_view"
         />
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/btnSend"
+        android:id="@+id/etText"/>
+
+    <Button
+        android:text="Send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSend"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        />
 
 
 </RelativeLayout>

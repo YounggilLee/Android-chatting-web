@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnCancel;
     EditText etEmail;
     EditText etPassword;
+    ProgressBar pbLogin;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         btnCancel = (Button)findViewById(R.id.btnCancel);
         etEmail = (EditText)findViewById(R.id.etEmail);
         etPassword = (EditText)findViewById(R.id.etPassword);
+        pbLogin = (ProgressBar)findViewById(R.id.pbLogin);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -71,7 +74,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 stEmail = etEmail.getText().toString();
                 stPassword = etPassword.getText().toString();
-                registerUser(stEmail, stPassword);
+
+                if(stEmail.equals("")||stEmail.isEmpty()||stPassword.equals("")||stPassword.isEmpty()){
+                    Toast.makeText(MainActivity.this, "Please Input Login information!!", Toast.LENGTH_SHORT).show();
+                }else{
+                    registerUser(stEmail, stPassword);
+                }
 
                 //Toast.makeText(MainActivity.this, stEmail + stPassword, Toast.LENGTH_SHORT).show();
             }
@@ -111,22 +119,19 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();
                         }
 
-                        // ...
                     }
                 });
 
     }
 
     public void userLogin(String email, String password){
+        pbLogin.setVisibility(View.VISIBLE);
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
-
-                        Intent in = new Intent(MainActivity.this, ChatActivity.class);
-                        startActivity(in);
-
+                        pbLogin.setVisibility(View.GONE);
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
@@ -134,9 +139,11 @@ public class MainActivity extends AppCompatActivity {
                             Log.w(TAG, "signInWithEmail", task.getException());
                             Toast.makeText(MainActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
+                        }else {
+                            Intent in = new Intent(MainActivity.this, ChatActivity.class);
+                            startActivity(in);
                         }
 
-                        // ...
                     }
                 });
     }
