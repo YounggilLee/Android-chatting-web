@@ -27,7 +27,6 @@ public class ChatActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    String[] myDataset = { "Hi", "Do", "you", "want","to","watch", "movie"};
     FirebaseDatabase database;
     List<Chat> mChats;
 
