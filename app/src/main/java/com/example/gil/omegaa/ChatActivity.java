@@ -1,5 +1,6 @@
 package com.example.gil.omegaa;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -34,6 +35,8 @@ public class ChatActivity extends AppCompatActivity {
     EditText etText;
     Button btnSend;
     String email;
+    Intent in;
+    String stChatId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,8 @@ public class ChatActivity extends AppCompatActivity {
             // FirebaseUser.getToken() instead.
            // String uid = user.getUid();
         }
+        in = getIntent();
+        stChatId = in.getStringExtra("friendUid");
 
 
         etText = (EditText)findViewById(R.id.etText);
@@ -67,6 +72,7 @@ public class ChatActivity extends AppCompatActivity {
                     Toast.makeText(ChatActivity.this, "Please Input text",
                             Toast.LENGTH_SHORT).show();
                 }else{
+
                     Toast.makeText(ChatActivity.this, email +"."+ stText,
                             Toast.LENGTH_SHORT).show();
 
@@ -76,14 +82,14 @@ public class ChatActivity extends AppCompatActivity {
                     String formattedDate = df.format(c.getTime());
 
                     // Write a message to the database
-                    DatabaseReference myRef = database.getReference("chats").child(formattedDate);
+                    DatabaseReference myRef1 = database.getReference("users").child(stChatId).child("chat").child(formattedDate);
                     //  DatabaseReference myRef = database.getReference("chats").push().child(formattedDate);
                     Hashtable<String, String> chat
                             = new Hashtable<String, String>();
                     chat.put("email", email);
                     chat.put("text", stText);
 
-                    myRef.setValue(chat);
+                    myRef1.setValue(chat);
                     etText.setText("");
                 }
             }
@@ -114,9 +120,9 @@ public class ChatActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
 
 
-        DatabaseReference myRef = database.getReference("chats");
+        DatabaseReference myRef2 = database.getReference("users").child(stChatId).child("chat");
 
-        myRef.addChildEventListener(new ChildEventListener() {
+        myRef2.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Chat chat = dataSnapshot.getValue(Chat.class);

@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
                                 Hashtable<String, String> profile = new Hashtable<String, String>();
                                 profile.put("email", user.getEmail());
                                 profile.put("photo", "");
+                                profile.put("key", user.getUid());
 
                                 myRef.child(user.getUid()).setValue(profile);
                             }

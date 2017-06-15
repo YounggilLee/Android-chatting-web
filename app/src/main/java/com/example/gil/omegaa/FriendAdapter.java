@@ -3,6 +3,7 @@ package com.example.gil.omegaa;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,8 +50,8 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
       //  this.stEmail = email;
         this.context = context;
     }
-/*
-    @Override
+
+ /*   @Override
     public int getItemViewType(int position) {
        // return super.getItemViewType(position);
         if(mFriends.get(position).getEmail().equals(stEmail)){
@@ -107,16 +108,32 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.ViewHolder
         // - replace the contents of the view with that element
         holder.tvEmail.setText(mFriends.get(position).getEmail());
 
-        //using picasso library to save the photo on cache memory
-        Picasso.with(context)
-                .load(mFriends.get(position).getPhoto())
-                .fit()
-                .centerInside()
-                .into(holder.ivUser);
+        String stPhoto = mFriends.get(position).getPhoto();
+        if(TextUtils.isEmpty(stPhoto)){
+            Picasso.with(context)
+                    .load(R.mipmap.ic_nophoto)
+                    .fit()
+                    .centerInside()
+                    .into(holder.ivUser);
+        }else {
+
+            //using picasso library to save the photo on cache memory
+            Picasso.with(context)
+                    .load(stPhoto)
+                    //.placeholder(R.mipmap.ic_nophoto)
+                    .fit()
+                    .centerInside()
+                    .into(holder.ivUser);
+        }
+
         holder.btnChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String stFriendId = mFriends.get(position).getKey();
                 Intent in = new Intent(context, ChatActivity.class);
+                in.putExtra("friendUid", stFriendId);
+                context.startActivity(in);
             }
         });
 

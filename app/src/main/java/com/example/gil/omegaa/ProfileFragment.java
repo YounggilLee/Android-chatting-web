@@ -82,9 +82,7 @@ public class ProfileFragment extends Fragment {
                 String stPhoto = dataSnapshot.child("photo").getValue().toString();
 
                 if(TextUtils.isEmpty(stPhoto)){
-
                     pbLogin.setVisibility(View.GONE);
-
                 }else {
                     pbLogin.setVisibility(View.VISIBLE);
 
@@ -191,6 +189,7 @@ public class ProfileFragment extends Fragment {
 
                 Hashtable<String, String> profile = new Hashtable<String, String>();
                 profile.put("email", stEmail);
+                profile.put("key", stUid);
                 profile.put("photo", String.valueOf(downLoadUri));
 
                 myRef.child(stUid).setValue(profile);

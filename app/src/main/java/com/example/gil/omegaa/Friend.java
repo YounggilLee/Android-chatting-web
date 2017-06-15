@@ -7,6 +7,7 @@ package com.example.gil.omegaa;
 public class Friend {
     public String email;
     public String photo;
+    public String key;
 
     public Friend() {
         // Default constructor required for calls to DataSnapshot.getValue(Comment.class)
@@ -26,5 +27,13 @@ public class Friend {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }
