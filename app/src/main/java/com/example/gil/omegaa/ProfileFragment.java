@@ -82,7 +82,9 @@ public class ProfileFragment extends Fragment {
                 String stPhoto = dataSnapshot.child("photo").getValue().toString();
 
                 if(TextUtils.isEmpty(stPhoto)){
+
                     pbLogin.setVisibility(View.GONE);
+
                 }else {
                     pbLogin.setVisibility(View.VISIBLE);
 
