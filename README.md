@@ -15,22 +15,22 @@ The app Implemented RecyclerView to display user profile and Implemented Fragmen
 *The user data was stored in Firebase. -Chatting data- 
 ![chat_db](https://user-images.githubusercontent.com/20617062/31924402-f24abf40-b84e-11e7-88a2-ff4748896725.png)
 
-*-Profile photo- 
+*Profile photo-
 ![photh_data](https://user-images.githubusercontent.com/20617062/31924407-f2ad741e-b84e-11e7-8568-96e306b75a2b.png)
 
 # Captured images for demo
 
 1.Login Activity
 ![login](https://user-images.githubusercontent.com/20617062/31924406-f29fdf98-b84e-11e7-8c4c-b252179f8169.png)
---
+
 2.Home
 ![home](https://user-images.githubusercontent.com/20617062/31924405-f2926908-b84e-11e7-9342-4b00f312b540.png)
---
+
 3.Profile
 ![profile](https://user-images.githubusercontent.com/20617062/31924408-f2bbe1a2-b84e-11e7-8c59-0c6fa3773728.png)
---
+
 4.Friends
 ![friends](https://user-images.githubusercontent.com/20617062/31924404-f2662b36-b84e-11e7-95ed-bcdb16ed535b.png)
---
+
 5.Chatting Test
 ![chat_test](https://user-images.githubusercontent.com/20617062/31924403-f2597120-b84e-11e7-8d8d-e171cc5f81ec.png)
